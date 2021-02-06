@@ -81,6 +81,8 @@ public class HotelSearchDaoImpl implements HotelSearchDao {
 			throw new HotelSearchDaoException(e);
 		} catch (Exception e) {
 			throw new HotelSearchDaoException(e);
+		} finally {
+			connect.closeConnection(connect.getConnection());
 		}
 
 	}
@@ -107,7 +109,10 @@ public class HotelSearchDaoImpl implements HotelSearchDao {
 			}
 		} catch (HotelSearchDaoException e) {
 			System.out.println(e);
+		} finally {
+			connect.closeConnection(connect.getConnection());
 		}
+
 		return hotel;
 	}
 
