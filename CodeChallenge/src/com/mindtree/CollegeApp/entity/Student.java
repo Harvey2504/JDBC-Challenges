@@ -2,7 +2,7 @@ package com.mindtree.CollegeApp.entity;
 
 public class Student {
 	private int studentId;
-	private String studentname;
+	private String studentName;
 	private int age;
 	private int subjectId;
 	private College college;
@@ -12,10 +12,10 @@ public class Student {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student(int studentId, String studentname, int age, int subjectId, College college) {
+	public Student(int studentId, String studentName, int age, int subjectId, College college) {
 		super();
 		this.studentId = studentId;
-		this.studentname = studentname;
+		this.studentName = studentName;
 		this.age = age;
 		this.subjectId = subjectId;
 		this.college = college;
@@ -29,12 +29,12 @@ public class Student {
 		this.studentId = studentId;
 	}
 
-	public String getStudentname() {
-		return studentname;
+	public String getStudentName() {
+		return studentName;
 	}
 
-	public void setStudentname(String studentname) {
-		this.studentname = studentname;
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
 
 	public int getAge() {
