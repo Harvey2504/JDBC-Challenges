@@ -62,7 +62,20 @@ public class CollegeDaoImpl implements CollegeDao {
 
 	@Override
 	public void display() throws CollegeDaoException {
-		// TODO Auto-generated method stub
+		sql = "select c.collegeName, s1.studentId, s1.studentName,s1.age, s2.subjectName from college c inner join students s1 on c.collegeId=s1.collegeId inner join subject s2 on s1.subjectId=s2.subjectId order by c.totalStrength desc, c.collegeName asc,s1.studentName asc";
+		System.out.println("College\tId\tName\tAge\tSubject");
+		try {
+			statement = (Statement) connect.getConnection().createStatement();
+			result = statement.executeQuery(sql);
+			while (result.next()) {
+				System.out.println(result.getString(1) + "\t" + result.getInt(2) + "\t" + result.getString(3) + "\t"
+						+ result.getInt(4) + "\t" + result.getString(5));
+			}
+		} catch (Exception e) {
+			throw new CollegeDaoException(e);
+		} finally {
+			connect.closeConnection(connect.getConnection());
+		}
 
 	}
 

@@ -46,6 +46,7 @@ public class CollegeServiceImpl implements CollegeService {
 		int subjectId = sc.nextInt();
 		System.out.println("Enter College Id");
 		int collegeId = sc.nextInt();
+		sc.nextLine();
 		try {
 			College college = dao.getCollegeById(collegeId);
 			Student student = new Student();
@@ -60,7 +61,11 @@ public class CollegeServiceImpl implements CollegeService {
 
 	@Override
 	public void display() throws CollegeServiceException {
-		// TODO Auto-generated method stub
+		try {
+			dao.display();
+		} catch (CollegeDaoException e) {
+			throw new CollegeServiceException(e);
+		}
 
 	}
 
